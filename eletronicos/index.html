@@ -4,15 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Volt Store — Eletrônicos</title>
+  <link rel="preload" href="assets/frames/f_001.jpg" as="image" />
   <meta name="description" content="Smartphones, notebooks, áudio, games e acessórios com frete grátis, 12x sem juros e 10% off no Pix." />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- TOPBAR -->
-  <div class="topbar">
-    <p><strong>Frete grátis</strong> acima de R$&nbsp;299 · <strong>10% off</strong> no Pix · até <strong>12x sem juros</strong></p>
-  </div>
 
   <!-- NAV -->
   <header class="nav">
@@ -27,7 +23,7 @@
       <nav class="nav__links">
         <a href="#categorias">Categorias</a>
         <a href="#ofertas">Ofertas</a>
-        <a href="#produtos">Produtos</a>
+        <a href="#buy">Produtos</a>
       </nav>
 
       <button class="cart-btn" id="cart-open" aria-label="Abrir carrinho">
@@ -37,42 +33,31 @@
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero__grid">
-      <div class="hero__text">
-        <p class="eyebrow">Lançamento · Semana Tech</p>
-        <h1>Tecnologia que<br/>acompanha<br/>o seu ritmo.</h1>
-        <p class="lede">
-          Os eletrônicos mais desejados com preço justo, entrega rápida
-          para todo o Brasil e garantia oficial. Tudo em um só lugar.
-        </p>
-        <div class="hero__actions">
-          <a href="#produtos" class="btn btn--green btn--lg">Ver produtos</a>
-          <a href="#ofertas" class="btn btn--ghost btn--lg">Oferta do dia</a>
-        </div>
-        <ul class="hero__proof">
-          <li><strong>+120 mil</strong><span>clientes</span></li>
-          <li><strong>4,9★</strong><span>avaliação média</span></li>
-          <li><strong>24h</strong><span>envio expresso</span></li>
-        </ul>
+  <!-- HERO: pinned, text left, scroll-scrub teardown right -->
+  <section id="scroll-hero" class="scroll-hero">
+    <div class="scroll-hero__sticky">
+      <div class="hero-stage">
+        <canvas id="hero-canvas" class="hero-canvas"></canvas>
       </div>
 
-      <div class="hero__showcase">
-        <span class="hero__orb"></span>
-        <article class="hero-card" id="hero-card">
-          <span class="badge badge--hot">-18%</span>
-          <div class="hero-card__img" id="hero-card-img"></div>
-          <div class="hero-card__body">
-            <p class="hero-card__cat">Smartphone</p>
-            <h3 id="hero-card-name">Nova X Pro 256GB</h3>
-            <p class="price-old">R$&nbsp;5.499,00</p>
-            <p class="price">R$&nbsp;4.499,00</p>
-            <p class="price-sub">ou 12x de R$&nbsp;374,92 sem juros</p>
-            <button class="btn btn--green btn--block" data-add="p1">Adicionar ao carrinho</button>
+      <div class="hero-grid">
+        <div class="hero-text">
+          <p class="eyebrow">Master Series</p>
+          <h1>MX&nbsp;Keys&nbsp;S.</h1>
+          <p class="lede">
+            Luz de fundo inteligente. Teclas esféricas perfeitas.
+            Padrão de conectividade otimizado. Construído para dominar
+            o seu fluxo de trabalho.
+          </p>
+          <div class="hero-actions">
+            <a href="#buy" class="btn btn--green btn--lg">Comprar Agora</a>
+            <a href="#features" class="btn btn--ghost btn--lg">Ver Recursos</a>
           </div>
-        </article>
+        </div>
       </div>
+
+      <div id="hero-loader" class="hero-loader"><span id="hero-loader-bar"></span></div>
+      <div class="scroll-progress"><span id="scroll-progress-bar"></span></div>
     </div>
   </section>
 
@@ -132,7 +117,7 @@
   </section>
 
   <!-- PRODUCTS -->
-  <section id="produtos" class="section reveal">
+  <section id="buy" class="section reveal">
     <header class="section__head section__head--row">
       <div>
         <h2>Mais vendidos.</h2>
@@ -156,7 +141,7 @@
   </section>
 
   <!-- WHY US (bento) -->
-  <section class="section reveal">
+  <section id="features" class="section reveal">
     <header class="section__head">
       <h2>Por que comprar<br/>na Volt.</h2>
       <p>Mais do que preço baixo: uma experiência de compra pensada nos detalhes.</p>
@@ -254,7 +239,7 @@
         <h4>Loja</h4>
         <a href="#categorias">Categorias</a>
         <a href="#ofertas">Ofertas</a>
-        <a href="#produtos">Mais vendidos</a>
+        <a href="#buy">Mais vendidos</a>
       </div>
       <div>
         <h4>Ajuda</h4>
