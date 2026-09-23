@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Volt Store — Eletrônicos</title>
+  <meta name="description" content="Smartphones, notebooks, áudio, games e acessórios com frete grátis, 12x sem juros e 10% off no Pix." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <p><strong>Frete grátis</strong> acima de R$&nbsp;299 · <strong>10% off</strong> no Pix · até <strong>12x sem juros</strong></p>
+  </div>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="nav__bar">
+      <a href="#" class="nav__logo">volt<span>.</span></a>
+
+      <form class="search" role="search" onsubmit="return false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="search-input" type="search" placeholder="Buscar produtos…" aria-label="Buscar produtos" />
+      </form>
+
+      <nav class="nav__links">
+        <a href="#categorias">Categorias</a>
+        <a href="#ofertas">Ofertas</a>
+        <a href="#produtos">Produtos</a>
+      </nav>
+
+      <button class="cart-btn" id="cart-open" aria-label="Abrir carrinho">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h15l-1.5 9h-12z"/><path d="M6 6 5 3H2"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/></svg>
+        <span class="cart-btn__count" id="cart-count">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__grid">
+      <div class="hero__text">
+        <p class="eyebrow">Lançamento · Semana Tech</p>
+        <h1>Tecnologia que<br/>acompanha<br/>o seu ritmo.</h1>
+        <p class="lede">
+          Os eletrônicos mais desejados com preço justo, entrega rápida
+          para todo o Brasil e garantia oficial. Tudo em um só lugar.
+        </p>
+        <div class="hero__actions">
+          <a href="#produtos" class="btn btn--green btn--lg">Ver produtos</a>
+          <a href="#ofertas" class="btn btn--ghost btn--lg">Oferta do dia</a>
+        </div>
+        <ul class="hero__proof">
+          <li><strong>+120 mil</strong><span>clientes</span></li>
+          <li><strong>4,9★</strong><span>avaliação média</span></li>
+          <li><strong>24h</strong><span>envio expresso</span></li>
+        </ul>
+      </div>
+
+      <div class="hero__showcase">
+        <span class="hero__orb"></span>
+        <article class="hero-card" id="hero-card">
+          <span class="badge badge--hot">-18%</span>
+          <div class="hero-card__img" id="hero-card-img"></div>
+          <div class="hero-card__body">
+            <p class="hero-card__cat">Smartphone</p>
+            <h3 id="hero-card-name">Nova X Pro 256GB</h3>
+            <p class="price-old">R$&nbsp;5.499,00</p>
+            <p class="price">R$&nbsp;4.499,00</p>
+            <p class="price-sub">ou 12x de R$&nbsp;374,92 sem juros</p>
+            <button class="btn btn--green btn--block" data-add="p1">Adicionar ao carrinho</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS STRIP -->
+  <section class="perks reveal">
+    <div class="perk">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg>
+      <div><strong>Frete grátis</strong><span>acima de R$ 299</span></div>
+    </div>
+    <div class="perk">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg>
+      <div><strong>12x sem juros</strong><span>em todos os cartões</span></div>
+    </div>
+    <div class="perk">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg>
+      <div><strong>Garantia oficial</strong><span>de 12 meses</span></div>
+    </div>
+    <div class="perk">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>
+      <div><strong>Troca fácil</strong><span>em até 7 dias</span></div>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section id="categorias" class="section reveal">
+    <header class="section__head">
+      <h2>Compre por categoria.</h2>
+      <p>Encontre o que você precisa em poucos cliques.</p>
+    </header>
+    <div class="cats" id="cats"></div>
+  </section>
+
+  <!-- DEAL OF THE DAY -->
+  <section id="ofertas" class="section reveal">
+    <div class="deal">
+      <div class="deal__img" id="deal-img"></div>
+      <div class="deal__body">
+        <p class="eyebrow eyebrow--light">Oferta do dia</p>
+        <h2 id="deal-name">Fone Pulse ANC Max</h2>
+        <p class="deal__desc">Cancelamento de ruído ativo, 40h de bateria e áudio espacial. Estoque limitado.</p>
+        <div class="deal__prices">
+          <span class="price-old price-old--light" id="deal-old">R$&nbsp;1.899,00</span>
+          <span class="price price--light" id="deal-price">R$&nbsp;1.199,00</span>
+        </div>
+        <div class="countdown" id="countdown" aria-label="Tempo restante da oferta">
+          <div><span id="cd-h">00</span><small>horas</small></div>
+          <div><span id="cd-m">00</span><small>min</small></div>
+          <div><span id="cd-s">00</span><small>seg</small></div>
+        </div>
+        <div class="stock">
+          <div class="stock__bar"><span style="width:72%"></span></div>
+          <p>72% vendido · restam poucas unidades</p>
+        </div>
+        <button class="btn btn--green btn--lg" data-add="p4">Aproveitar oferta</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section id="produtos" class="section reveal">
+    <header class="section__head section__head--row">
+      <div>
+        <h2>Mais vendidos.</h2>
+        <p>Os favoritos dos nossos clientes esta semana.</p>
+      </div>
+      <label class="sort">
+        <span>Ordenar</span>
+        <select id="sort">
+          <option value="relevance">Relevância</option>
+          <option value="price-asc">Menor preço</option>
+          <option value="price-desc">Maior preço</option>
+          <option value="discount">Maior desconto</option>
+          <option value="rating">Melhor avaliados</option>
+        </select>
+      </label>
+    </header>
+
+    <div class="chips" id="chips"></div>
+    <div class="products" id="products"></div>
+    <p class="empty" id="empty" hidden>Nenhum produto encontrado. Tente outra busca.</p>
+  </section>
+
+  <!-- WHY US (bento) -->
+  <section class="section reveal">
+    <header class="section__head">
+      <h2>Por que comprar<br/>na Volt.</h2>
+      <p>Mais do que preço baixo: uma experiência de compra pensada nos detalhes.</p>
+    </header>
+    <div class="bento">
+      <article class="bento-card bento-card--glow">
+        <div class="glow-stage">
+          <span class="glow-orb"></span>
+          <svg class="glow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>
+          <span class="glow-line"></span>
+        </div>
+        <h3>Entrega expressa</h3>
+        <p>Pedidos aprovados até as 14h saem no mesmo dia. Nas capitais,
+           receba em até 24h com rastreio em tempo real.</p>
+      </article>
+      <article class="bento-card">
+        <div class="stat-stage">
+          <span class="stat__big">100%</span>
+          <span class="stat__label">produtos originais com nota fiscal</span>
+        </div>
+        <h3>Compra segura</h3>
+        <p>Site protegido, pagamento criptografado e produtos com garantia oficial do fabricante.</p>
+      </article>
+    </div>
+    <div class="pay">
+      <span>Formas de pagamento</span>
+      <ul>
+        <li>Pix</li><li>Visa</li><li>Mastercard</li><li>Elo</li><li>Amex</li><li>Boleto</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section reveal">
+    <h2 class="section__title">Quem comprou, recomenda.</h2>
+    <div class="cards">
+      <article class="card">
+        <p class="stars">★★★★★</p>
+        <p>“Chegou em menos de 24h, bem embalado e com nota. O notebook é uma máquina. Preço melhor que em qualquer outro lugar.”</p>
+        <span class="card__who">Mariana S. · São Paulo</span>
+      </article>
+      <article class="card">
+        <p class="stars">★★★★★</p>
+        <p>“Paguei no Pix com 10% de desconto e acompanhei a entrega pelo app. Atendimento rápido no WhatsApp.”</p>
+        <span class="card__who">Rafael T. · Belo Horizonte</span>
+      </article>
+      <article class="card">
+        <p class="stars">★★★★★</p>
+        <p>“Precisei trocar a cor do smartwatch e foi super simples. Já é minha terceira compra aqui.”</p>
+        <span class="card__who">Juliana M. · Recife</span>
+      </article>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section--narrow reveal">
+    <h2 class="section__title">Dúvidas frequentes</h2>
+    <div class="faq">
+      <details>
+        <summary>Qual o prazo de entrega?</summary>
+        <p>Capitais recebem em 1 a 3 dias úteis; demais regiões em até 8 dias úteis. O prazo exato aparece no carrinho após informar o CEP.</p>
+      </details>
+      <details>
+        <summary>Os produtos têm garantia?</summary>
+        <p>Sim. Todos os produtos são novos, originais, com nota fiscal e garantia oficial de 12 meses do fabricante.</p>
+      </details>
+      <details>
+        <summary>Como funciona o desconto no Pix?</summary>
+        <p>Ao escolher Pix no pagamento, 10% de desconto é aplicado automaticamente sobre o valor dos produtos.</p>
+      </details>
+      <details>
+        <summary>Posso trocar ou devolver?</summary>
+        <p>Você tem 7 dias após o recebimento para devolver por arrependimento, com frete de retorno por nossa conta.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER / CTA -->
+  <section class="section section--cta reveal">
+    <h2>Receba ofertas<br/>antes de todo mundo.</h2>
+    <p>Cadastre seu e-mail e ganhe um cupom de <strong>R$&nbsp;50</strong> na primeira compra.</p>
+    <form class="newsletter" id="newsletter">
+      <input type="email" required placeholder="seu@email.com" aria-label="Seu e-mail" />
+      <button class="btn btn--green btn--lg" type="submit">Quero meu cupom</button>
+    </form>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__grid">
+      <div>
+        <a href="#" class="nav__logo">volt<span>.</span></a>
+        <p>Eletrônicos originais com o melhor preço, entrega rápida e garantia.</p>
+      </div>
+      <div>
+        <h4>Loja</h4>
+        <a href="#categorias">Categorias</a>
+        <a href="#ofertas">Ofertas</a>
+        <a href="#produtos">Mais vendidos</a>
+      </div>
+      <div>
+        <h4>Ajuda</h4>
+        <a href="#">Rastrear pedido</a>
+        <a href="#">Trocas e devoluções</a>
+        <a href="#">Fale conosco</a>
+      </div>
+    </div>
+    <p class="footer__legal">© 2026 Volt Store · Loja demonstrativa · Preços e produtos fictícios</p>
+  </footer>
+
+  <!-- CART DRAWER -->
+  <div class="overlay" id="overlay"></div>
+  <aside class="drawer" id="drawer" aria-label="Carrinho" aria-hidden="true">
+    <header class="drawer__head">
+      <h3>Seu carrinho</h3>
+      <button class="icon-btn" id="cart-close" aria-label="Fechar carrinho">✕</button>
+    </header>
+    <div class="ship">
+      <p id="ship-msg">Faltam R$ 299,00 para o frete grátis</p>
+      <div class="ship__bar"><span id="ship-bar"></span></div>
+    </div>
+    <ul class="drawer__items" id="cart-items"></ul>
+    <p class="drawer__empty" id="cart-empty">Seu carrinho está vazio.</p>
+    <footer class="drawer__foot">
+      <div class="row"><span>Subtotal</span><strong id="cart-subtotal">R$ 0,00</strong></div>
+      <div class="row row--pix"><span>No Pix (10% off)</span><strong id="cart-pix">R$ 0,00</strong></div>
+      <p class="drawer__inst" id="cart-inst">ou até 12x sem juros</p>
+      <button class="btn btn--green btn--lg btn--block" id="checkout">Finalizar compra</button>
+    </footer>
+  </aside>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
